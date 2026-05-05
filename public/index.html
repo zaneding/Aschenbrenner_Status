@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Situational Awareness LP 13F Tracker</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="topbar">
+        <div>
+          <p class="eyebrow">SEC 13F / Situational Awareness LP</p>
+          <h1>Aschenbrenner 持仓观察台</h1>
+        </div>
+        <div class="actions">
+          <button id="refreshButton" type="button">刷新 SEC</button>
+          <a id="sourceLink" href="https://data.sec.gov/submissions/CIK0002045724.json" target="_blank" rel="noreferrer">SEC 源</a>
+        </div>
+      </section>
+
+      <section id="notice" class="notice" hidden></section>
+
+      <section class="hero-grid">
+        <article class="metric primary">
+          <span>报告持仓市值</span>
+          <strong id="totalValue">--</strong>
+          <small id="filingMeta">读取中</small>
+        </article>
+        <article class="metric">
+          <span>持仓数量</span>
+          <strong id="positionCount">--</strong>
+          <small id="equityOptionCount">普通股 / 期权</small>
+        </article>
+        <article class="metric">
+          <span>前五集中度</span>
+          <strong id="topFive">--</strong>
+          <small id="topHolding">最大持仓</small>
+        </article>
+        <article class="metric">
+          <span>期权暴露</span>
+          <strong id="optionWeight">--</strong>
+          <small>按 13F 报告价值计</small>
+        </article>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="panel wide">
+          <header class="panel-header">
+            <div>
+              <h2>持仓地图</h2>
+              <p>面积按报告价值权重显示，颜色区分普通股、Call、Put。</p>
+            </div>
+          </header>
+          <div id="treemap" class="treemap" aria-live="polite"></div>
+        </article>
+
+        <article class="panel">
+          <header class="panel-header">
+            <div>
+              <h2>行业分布</h2>
+              <p>基于本地 CUSIP 映射，未知项会单独归类。</p>
+            </div>
+          </header>
+          <div id="sectorBars" class="bars"></div>
+        </article>
+
+        <article class="panel">
+          <header class="panel-header">
+            <div>
+              <h2>季度变化</h2>
+              <p>与上一份 13F 比较 shares 和报告价值。</p>
+            </div>
+          </header>
+          <div id="changeList" class="change-list"></div>
+        </article>
+      </section>
+
+      <section class="panel holdings-panel">
+        <header class="panel-header">
+          <div>
+            <h2>最新公开持仓</h2>
+            <p>13F 是延迟披露，不代表当前实时仓位或交易。</p>
+          </div>
+          <input id="searchInput" type="search" placeholder="搜索公司 / CUSIP / ticker" />
+        </header>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>公司</th>
+                <th>Ticker</th>
+                <th>类型</th>
+                <th>报告价值</th>
+                <th>权重</th>
+                <th>Shares</th>
+                <th>报告均价</th>
+              </tr>
+            </thead>
+            <tbody id="holdingsTable"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>
