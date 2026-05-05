@@ -5,9 +5,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
+from tracker.visual_asset import write_svg_dashboard
+
 
 STATE_FILE = "notion_state.json"
 UPDATES_DIR = "notion_updates"
+PUBLIC_IMAGE_BASE_URL = "https://raw.githubusercontent.com/zaneding/Aschenbrenner_Status/main/public/notion-assets"
 
 
 def _money(value: float) -> str:
@@ -69,7 +72,12 @@ def build_notion_child_page_title(snapshot: dict) -> str:
     return f"13F {filing['report_date']} - {filing['accession']}"
 
 
-def build_notion_markdown(snapshot: dict) -> str:
+def notion_image_url(snapshot: dict) -> str:
+    accession = snapshot["latest_filing"]["accession"]
+    return f"{PUBLIC_IMAGE_BASE_URL}/{accession}.svg"
+
+
+def build_notion_markdown(snapshot: dict, image_url: Optional[str] = None) -> str:
     filing = snapshot["latest_filing"]
     summary = snapshot["summary"]
     holdings = summary["holdings"][:10]
@@ -89,6 +97,18 @@ def build_notion_markdown(snapshot: dict) -> str:
         "",
         "> Public 13F snapshot. This is delayed disclosure, not a real-time trade feed.",
         "",
+    ]
+
+    if image_url:
+        lines.extend(
+            [
+                f"![Visual 13F dashboard]({image_url})",
+                "",
+            ]
+        )
+
+    lines.extend(
+        [
         "## KPI strip {color=\"blue\"}",
         "",
         f"- Reported value: {_money(total)}",
@@ -100,7 +120,8 @@ def build_notion_markdown(snapshot: dict) -> str:
         "",
         "## Portfolio heat map {color=\"green\"}",
         "",
-    ]
+        ]
+    )
 
     for index, holding in enumerate(holdings, start=1):
         position_type = holding.get("put_call") or "Equity"
@@ -176,12 +197,15 @@ def check_new_filing(snapshot: dict, data_dir: Path) -> dict:
     updates_dir = data_dir / UPDATES_DIR
     updates_dir.mkdir(parents=True, exist_ok=True)
     markdown_path = updates_dir / f"{accession}.md"
-    markdown_path.write_text(build_notion_markdown(snapshot))
+    asset_path = write_svg_dashboard(snapshot, data_dir.parent / "public" / "notion-assets")
+    markdown_path.write_text(build_notion_markdown(snapshot, image_url=notion_image_url(snapshot)))
 
     return {
         "has_new_filing": True,
         "accession": accession,
         "page_title": build_notion_child_page_title(snapshot),
         "markdown_path": str(markdown_path),
+        "asset_path": str(asset_path),
+        "image_url": notion_image_url(snapshot),
         "message": f"New 13F filing detected: {accession}. Create a Notion child page with page_title.",
     }

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#f8f7f0"/>
+<stop offset="100%" stop-color="#e7efe8"/>
+</linearGradient>
+<filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#1d241f" flood-opacity="0.16"/></filter>
+</defs>
+<rect width="1400" height="900" fill="url(#bg)"/>
+<rect x="48" y="44" width="1304" height="812" rx="26" fill="#ffffff" filter="url(#shadow)"/>
+<text x="90" y="112" font-family="Avenir Next, Helvetica, Arial" font-size="24" font-weight="700" fill="#0f7a56">Situational Awareness LP / SEC 13F</text>
+<text x="90" y="166" font-family="Georgia, serif" font-size="56" font-weight="700" fill="#171916">13F Dashboard 2025-12-31</text>
+<text x="90" y="206" font-family="Avenir Next, Helvetica, Arial" font-size="20" fill="#6f726d">Filed 2026-02-11 · 0002045724-26-000002 · delayed public disclosure</text>
+<rect x="90" y="250" width="270" height="126" rx="18" fill="#2e302c"/>
+<text x="114" y="294" font-family="Avenir Next, Helvetica, Arial" font-size="18" fill="#ffffff" opacity="0.75">Reported value</text>
+<text x="114" y="342" font-family="Avenir Next, Helvetica, Arial" font-size="36" font-weight="800" fill="#ffffff">$5.52B</text>
+<rect x="395" y="250" width="270" height="126" rx="18" fill="#0f7a56"/>
+<text x="419" y="294" font-family="Avenir Next, Helvetica, Arial" font-size="18" fill="#ffffff" opacity="0.75">Positions</text>
+<text x="419" y="342" font-family="Avenir Next, Helvetica, Arial" font-size="36" font-weight="800" fill="#ffffff">29</text>
+<rect x="700" y="250" width="270" height="126" rx="18" fill="#188c9b"/>
+<text x="724" y="294" font-family="Avenir Next, Helvetica, Arial" font-size="18" fill="#ffffff" opacity="0.75">Top 5 weight</text>
+<text x="724" y="342" font-family="Avenir Next, Helvetica, Arial" font-size="36" font-weight="800" fill="#ffffff">60.0%</text>
+<rect x="1005" y="250" width="270" height="126" rx="18" fill="#b36b00"/>
+<text x="1029" y="294" font-family="Avenir Next, Helvetica, Arial" font-size="18" fill="#ffffff" opacity="0.75">Option exposure</text>
+<text x="1029" y="342" font-family="Avenir Next, Helvetica, Arial" font-size="36" font-weight="800" fill="#ffffff">29.1%</text>
+<text x="90" y="438" font-family="Avenir Next, Helvetica, Arial" font-size="28" font-weight="800" fill="#171916">Portfolio heat map</text>
+<text x="90" y="488" font-family="Avenir Next, Helvetica, Arial" font-size="18" font-weight="700" fill="#171916">#1 Bloom Energy Corp</text>
+<text x="520" y="488" font-family="Avenir Next, Helvetica, Arial" font-size="16" fill="#6f726d">Equity · $875.5M · 15.9%</text>
+<rect x="90" y="500" width="760" height="18" rx="8" fill="#ece9df"/><rect x="90" y="500" width="760" height="18" rx="8" fill="#0f7a56"/>
+<text x="90" y="534" font-family="Avenir Next, Helvetica, Arial" font-size="18" font-weight="700" fill="#171916">#2 Coreweave Inc</text>
+<text x="520" y="534" font-family="Avenir Next, Helvetica, Arial" font-size="16" fill="#6f726d">Call · $774.4M · 14.0%</text>
+<rect x="90" y="546" width="760" height="18" rx="8" fill="#ece9df"/><rect x="90" y="546" width="672" height="18" rx="8" fill="#188c9b"/>
+<text x="90" y="580" font-family="Avenir Next, Helvetica, Arial" font-size="18" font-weight="700" fill="#171916">#3 Intel Corp</text>
+<text x="520" y="580" font-family="Avenir Next, Helvetica, Arial" font-size="16" fill="#6f726d">Call · $746.8M · 13.5%</text>
+<rect x="90" y="592" width="760" height="18" rx="8" fill="#ece9df"/><rect x="90" y="592" width="648" height="18" rx="8" fill="#188c9b"/>
+<text x="90" y="626" font-family="Avenir Next, Helvetica, Arial" font-size="18" font-weight="700" fill="#171916">#4 Lumentum Hldgs Inc</text>
+<text x="520" y="626" font-family="Avenir Next, Helvetica, Arial" font-size="16" fill="#6f726d">Equity · $478.6M · 8.7%</text>
+<rect x="90" y="638" width="760" height="18" rx="8" fill="#ece9df"/><rect x="90" y="638" width="415" height="18" rx="8" fill="#0f7a56"/>
+<text x="90" y="672" font-family="Avenir Next, Helvetica, Arial" font-size="18" font-weight="700" fill="#171916">#5 Coreweave Inc</text>
+<text x="520" y="672" font-family="Avenir Next, Helvetica, Arial" font-size="16" fill="#6f726d">Equity · $436.7M · 7.9%</text>
+<rect x="90" y="684" width="760" height="18" rx="8" fill="#ece9df"/><rect x="90" y="684" width="379" height="18" rx="8" fill="#0f7a56"/>
+<text x="90" y="718" font-family="Avenir Next, Helvetica, Arial" font-size="18" font-weight="700" fill="#171916">#6 Core Scientific Inc New</text>
+<text x="520" y="718" font-family="Avenir Next, Helvetica, Arial" font-size="16" fill="#6f726d">Equity · $418.7M · 7.6%</text>
+<rect x="90" y="730" width="760" height="18" rx="8" fill="#ece9df"/><rect x="90" y="730" width="363" height="18" rx="8" fill="#0f7a56"/>
+<text x="90" y="764" font-family="Avenir Next, Helvetica, Arial" font-size="18" font-weight="700" fill="#171916">#7 Iren Limited</text>
+<text x="520" y="764" font-family="Avenir Next, Helvetica, Arial" font-size="16" fill="#6f726d">Equity · $328.6M · 6.0%</text>
+<rect x="90" y="776" width="760" height="18" rx="8" fill="#ece9df"/><rect x="90" y="776" width="285" height="18" rx="8" fill="#0f7a56"/>
+<text x="90" y="810" font-family="Avenir Next, Helvetica, Arial" font-size="18" font-weight="700" fill="#171916">#8 Applied Digital Corp</text>
+<text x="520" y="810" font-family="Avenir Next, Helvetica, Arial" font-size="16" fill="#6f726d">Equity · $278.0M · 5.0%</text>
+<rect x="90" y="822" width="760" height="18" rx="8" fill="#ece9df"/><rect x="90" y="822" width="241" height="18" rx="8" fill="#0f7a56"/>
+<text x="930" y="438" font-family="Avenir Next, Helvetica, Arial" font-size="28" font-weight="800" fill="#171916">Sector allocation</text>
+<text x="930" y="488" font-family="Avenir Next, Helvetica, Arial" font-size="17" font-weight="700" fill="#171916">AI Infrastructure</text>
+<text x="1210" y="488" font-family="Avenir Next, Helvetica, Arial" font-size="15" fill="#6f726d">41.0%</text>
+<rect x="930" y="500" width="330" height="18" rx="8" fill="#ece9df"/><rect x="930" y="500" width="330" height="18" rx="8" fill="#b36b00"/>
+<text x="930" y="540" font-family="Avenir Next, Helvetica, Arial" font-size="17" font-weight="700" fill="#171916">Energy</text>
+<text x="1210" y="540" font-family="Avenir Next, Helvetica, Arial" font-size="15" fill="#6f726d">20.2%</text>
+<rect x="930" y="552" width="330" height="18" rx="8" fill="#ece9df"/><rect x="930" y="552" width="162" height="18" rx="8" fill="#b36b00"/>
+<text x="930" y="592" font-family="Avenir Next, Helvetica, Arial" font-size="17" font-weight="700" fill="#171916">Semiconductors</text>
+<text x="1210" y="592" font-family="Avenir Next, Helvetica, Arial" font-size="15" fill="#6f726d">15.1%</text>
+<rect x="930" y="604" width="330" height="18" rx="8" fill="#ece9df"/><rect x="930" y="604" width="121" height="18" rx="8" fill="#b36b00"/>
+<text x="930" y="644" font-family="Avenir Next, Helvetica, Arial" font-size="17" font-weight="700" fill="#171916">Optical / Semis</text>
+<text x="1210" y="644" font-family="Avenir Next, Helvetica, Arial" font-size="15" fill="#6f726d">10.3%</text>
+<rect x="930" y="656" width="330" height="18" rx="8" fill="#ece9df"/><rect x="930" y="656" width="82" height="18" rx="8" fill="#b36b00"/>
+<text x="930" y="696" font-family="Avenir Next, Helvetica, Arial" font-size="17" font-weight="700" fill="#171916">Bitcoin Infrastructure</text>
+<text x="1210" y="696" font-family="Avenir Next, Helvetica, Arial" font-size="15" fill="#6f726d">5.9%</text>
+<rect x="930" y="708" width="330" height="18" rx="8" fill="#ece9df"/><rect x="930" y="708" width="47" height="18" rx="8" fill="#b36b00"/>
+<text x="930" y="748" font-family="Avenir Next, Helvetica, Arial" font-size="17" font-weight="700" fill="#171916">Storage</text>
+<text x="1210" y="748" font-family="Avenir Next, Helvetica, Arial" font-size="15" fill="#6f726d">4.5%</text>
+<rect x="930" y="760" width="330" height="18" rx="8" fill="#ece9df"/><rect x="930" y="760" width="36" height="18" rx="8" fill="#b36b00"/>
+<text x="930" y="800" font-family="Avenir Next, Helvetica, Arial" font-size="17" font-weight="700" fill="#171916">Energy Services</text>
+<text x="1210" y="800" font-family="Avenir Next, Helvetica, Arial" font-size="15" fill="#6f726d">1.9%</text>
+<rect x="930" y="812" width="330" height="18" rx="8" fill="#ece9df"/><rect x="930" y="812" width="15" height="18" rx="8" fill="#b36b00"/>
+<rect x="90" y="805" width="1180" height="1" fill="#deded7"/>
+<text x="90" y="836" font-family="Avenir Next, Helvetica, Arial" font-size="16" fill="#6f726d">13F filings are delayed disclosures and do not represent live positions or trades.</text>
+</svg>

@@ -7,6 +7,7 @@ from tracker.notion_update import (
     build_notion_child_page_title,
     build_notion_markdown,
     check_new_filing,
+    notion_image_url,
     mark_notified,
 )
 
@@ -86,8 +87,9 @@ class NotionUpdateTests(unittest.TestCase):
             self.assertIsNone(result["markdown_path"])
 
     def test_markdown_contains_summary_and_changes(self):
-        markdown = build_notion_markdown(SNAPSHOT)
+        markdown = build_notion_markdown(SNAPSHOT, image_url=notion_image_url(SNAPSHOT))
 
+        self.assertIn("![Visual 13F dashboard]", markdown)
         self.assertIn("13F Dashboard - 2025-12-31", markdown)
         self.assertIn("Bloom Energy Corp", markdown)
         self.assertIn("Coreweave Inc", markdown)
@@ -95,6 +97,12 @@ class NotionUpdateTests(unittest.TestCase):
         self.assertIn("Sector allocation", markdown)
         self.assertIn("{color=\"green\"}", markdown)
         self.assertIn("https://www.sec.gov/Archives", markdown)
+
+    def test_notion_image_url_points_to_public_raw_asset(self):
+        url = notion_image_url(SNAPSHOT)
+
+        self.assertIn("raw.githubusercontent.com/zaneding/Aschenbrenner_Status", url)
+        self.assertTrue(url.endswith("0002045724-26-000002.svg"))
 
     def test_child_page_title_uses_report_date_and_accession(self):
         title = build_notion_child_page_title(SNAPSHOT)
