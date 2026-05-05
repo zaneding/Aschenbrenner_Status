@@ -4,6 +4,7 @@ import unittest
 from pathlib import Path
 
 from tracker.notion_update import (
+    build_notion_child_page_title,
     build_notion_markdown,
     check_new_filing,
     mark_notified,
@@ -35,6 +36,17 @@ SNAPSHOT = {
                 "weight": 0.15869927541660336,
                 "shares": 10076022,
                 "put_call": "",
+                "sector": "Energy",
+            },
+            {
+                "issuer": "COREWEAVE INC",
+                "ticker": "CRWV",
+                "cusip": "21873S108",
+                "value_usd": 774426345,
+                "weight": 0.14037706503890737,
+                "shares": 10814500,
+                "put_call": "Call",
+                "sector": "AI Infrastructure",
             }
         ],
     },
@@ -60,6 +72,7 @@ class NotionUpdateTests(unittest.TestCase):
 
             self.assertTrue(result["has_new_filing"])
             self.assertTrue(Path(result["markdown_path"]).exists())
+            self.assertEqual(result["page_title"], "13F 2025-12-31 - 0002045724-26-000002")
             self.assertIn("0002045724-26-000002", Path(result["markdown_path"]).read_text())
 
     def test_check_new_filing_skips_seen_accession(self):
@@ -75,10 +88,18 @@ class NotionUpdateTests(unittest.TestCase):
     def test_markdown_contains_summary_and_changes(self):
         markdown = build_notion_markdown(SNAPSHOT)
 
-        self.assertIn("Situational Awareness LP 13F Update", markdown)
+        self.assertIn("13F Dashboard - 2025-12-31", markdown)
         self.assertIn("Bloom Energy Corp", markdown)
         self.assertIn("Coreweave Inc", markdown)
+        self.assertIn("Portfolio heat map", markdown)
+        self.assertIn("Sector allocation", markdown)
+        self.assertIn("{color=\"green\"}", markdown)
         self.assertIn("https://www.sec.gov/Archives", markdown)
+
+    def test_child_page_title_uses_report_date_and_accession(self):
+        title = build_notion_child_page_title(SNAPSHOT)
+
+        self.assertEqual(title, "13F 2025-12-31 - 0002045724-26-000002")
 
     def test_mark_notified_persists_accession(self):
         with tempfile.TemporaryDirectory() as tmp:

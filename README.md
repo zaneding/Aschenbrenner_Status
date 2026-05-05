@@ -10,7 +10,7 @@
 - `持仓 dashboard`：展示报告持仓市值、持仓数量、Top 5 集中度、期权暴露、持仓地图、行业分布、季度变化和可搜索持仓表。
 - `季度变化识别`：与上一份 13F 比较，标记新增、增持、减持、清仓。
 - `每日检查`：脚本可每天运行一次，刷新 `data/latest.json`。
-- `Notion 追踪流`：只有发现新的 13F accession 时，才生成 Notion entry markdown；写入 Notion 成功后再标记已通知，避免重复写入。
+- `Notion 追踪流`：只有发现新的 13F accession 时，才生成一份可视化 Notion 子页面内容；写入 Notion 成功后再标记已通知，避免重复写入。
 - `无第三方运行依赖`：后端、解析、测试都使用 Python 标准库；前端是静态 HTML/CSS/JS。
 
 ## 项目结构
@@ -58,13 +58,13 @@ Prepare a Notion entry only when a new 13F accession appears:
 python3 scripts/check_notion_update.py check --refresh
 ```
 
-If the output has `"has_new_filing": true`, write the generated markdown file into your private Notion tracking page, then mark that accession as notified:
+If the output has `"has_new_filing": true`, create a child page under your private Notion tracking page. Use the returned `"page_title"` as the child page title and the generated markdown file as the child page content. After the child page is created successfully, mark that accession as notified:
 
 ```bash
 python3 scripts/check_notion_update.py mark 0002045724-26-000002 --notion-target "YOUR_PRIVATE_NOTION_PAGE_OR_URL"
 ```
 
-This two-step flow avoids marking a filing as delivered before Notion write succeeds.
+This two-step flow avoids marking a filing as delivered before Notion write succeeds. Each generated child page contains a visual Notion report with colored sections, KPI blocks, holding weight bars, sector allocation, and a quarter-over-quarter change matrix.
 
 The generated markdown is written under `data/notion_updates/` and intentionally ignored by git because it is runtime output. Keep private Notion page names and URLs in local automation config, not in the public repository.
 
